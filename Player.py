@@ -9,6 +9,7 @@ class Player:
         self.url = 'http://localhost:1976/'
         self.userID = ''
         self.cards = list()
+        self.cardvalues = list()
 
     def init_request(self, action):
         req = urllib2.Request(self.url + action)
@@ -48,6 +49,18 @@ class Player:
 
         response = urllib2.urlopen(req, json.dumps(data))
 
+    def request_get_card_values(self):
+        data = {"userID": self.userID}
+        req = self.init_request("getCardValues")
+
+        response = urllib2.urlopen(req, json.dumps(data))
+
+        dic = json.load(response)
+        self.cardvalues = dic["cardvalues"]
+
+        print self.cardvalues
+        print len(self.cardvalues)
+
 p = list()
 p.append(Player("test6"))
 p.append(Player("test7"))
@@ -64,3 +77,6 @@ for i in p:
 
 for i in p:
     i.request_getstatus()
+
+for i in p:
+    i.request_get_card_values()
