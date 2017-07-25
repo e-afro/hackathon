@@ -32,7 +32,9 @@ class Player:
 
         response = urllib2.urlopen(req, json.dumps(data))
 
-        print response.read()
+        #print response.read()
+        return json.load(response)
+
 
     def request_get_cards(self):
         data = {"userID": self.userID}
