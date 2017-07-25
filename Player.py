@@ -58,9 +58,6 @@ class Player:
         dic = json.load(response)
         self.cardvalues = dic["cardvalues"]
 
-        print self.cardvalues
-        print len(self.cardvalues)
-
 p = list()
 p.append(Player("test6"))
 p.append(Player("test7"))
