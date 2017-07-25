@@ -42,11 +42,15 @@ class Player:
         dic = json.load(response)
         self.cards = dic["cards"]
 
-        print self.cards
+    def request_play_card(self, card):
+        data = {"userID": self.userID, "card": card}
+        req = self.init_request("playCard")
+
+        response = urllib2.urlopen(req, json.dumps(data))
 
 p = list()
-p.append(Player("test4"))
-p.append(Player("test5"))
+p.append(Player("test6"))
+p.append(Player("test7"))
 
 for i in p:
     i.request_join()
@@ -54,3 +58,9 @@ for i in p:
 
 for i in p:
     i.request_get_cards()
+
+for i in p:
+    i.request_play_card(i.cards[1])
+
+for i in p:
+    i.request_getstatus()
