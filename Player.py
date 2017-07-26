@@ -64,6 +64,4 @@ class Player:
         data = {"userID": self.userID, "row": row}
         req = self.init_request("selectRow")
 
-        response = urllib2.urlopen(req, json.dumps(data))
-
-        print response.read()
+        urllib2.urlopen(req, json.dumps(data))

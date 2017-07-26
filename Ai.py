@@ -23,7 +23,7 @@ class Ai:
 
         return somme < total
 
-    def startGame(self):
+    def initGame(self):
         self.player.join()
 
         self.getInfos()
@@ -32,6 +32,9 @@ class Ai:
             self.getInfos()
 
         self.player.request_get_cards()
+
+    def startGame(self):
+        self.initGame()
 
         while len(self.infos["finalRanking"]) == 0:
             None
