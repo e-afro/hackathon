@@ -4,8 +4,12 @@ import time
 class Ai:
 
     def __init__(self, player):
-        self.player = Player(player)
+        self.player = Player.Player(player)
         self.infos = dict()
+        self.cardvalues = list()
+
+    def getCardValues(self):
+        self.cardvalues = self.player.request_get_card_values()
 
     def getInfo(self):
         time.sleep(1)
@@ -30,6 +34,7 @@ class Ai:
         self.player.request_get_cards()
 
         while len(self.infos["finalRanking"]) == 0:
+            None
             #TODO
 
 
