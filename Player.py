@@ -42,6 +42,7 @@ class Player:
 
         dic = json.load(response)
         self.cards = dic["cards"]
+        self.cards.sort()
 
     def request_play_card(self, card):
         data = {"userID": self.userID, "card": card}
