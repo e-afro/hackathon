@@ -6,8 +6,8 @@ class Interface:
     def __init__(self):
         self.root = None
         self.turnsLabel = None
-        self.rowsLabels = list()
         self.cardsLabel = None
+        self.rowsLabels = list()
 
     def createInterface(self):
         self.createMainWindow()
@@ -57,7 +57,6 @@ class Interface:
             config = {'text': "row" + str(i) + " = " + "0  0  0  0  0  0",
                       'foreground': "#892222",
                       'background': "#FFAAAA",
-                      'padx': "10",
                       'pady': "10"}
 
             self.rowsLabels.append(self.createLabel(0, i, config))
