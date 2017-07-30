@@ -2,7 +2,7 @@ import Command
 import Response
 
 
-class RequesterHandler:
+class CommandHandler:
 
     def __init__(self):
         self.command = Command.Command()
