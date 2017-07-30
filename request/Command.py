@@ -8,7 +8,7 @@ class Command:
         self.json_handler = JsonHandler.JsonHandler()
         self.requester = Requester.Requester()
 
-    def load_parameters(self, action, value):
+    def load_parameters(self, action, value=None):
         self.requester.build_request(action)
         self.json_handler.load_data(action, value)
 

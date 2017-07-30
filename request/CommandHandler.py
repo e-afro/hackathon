@@ -8,7 +8,7 @@ class RequesterHandler:
         self.command = Command.Command()
         self.response = Response.Response()
 
-    def execute(self, action, value):
+    def execute(self, action, value=None):
         self.command.load_parameters(action, value)
         self.response.response = self.command.execute()
 
