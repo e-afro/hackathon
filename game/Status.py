@@ -11,4 +11,3 @@ class Status:
 
     def update(self, response):
         None
-
