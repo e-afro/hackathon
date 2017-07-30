@@ -14,3 +14,6 @@ class Response:
             self._response = json.load(response)
 
     response = property(_get_response, _set_response)
+
+    def __getitem__(self, item):
+        return self.response[item]
