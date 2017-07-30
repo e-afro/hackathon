@@ -7,7 +7,7 @@ class Requester:
         self.url = 'http://mapps4u.com:1976/'
         self.request = None
 
-    def create_request(self, action):
+    def build_request(self, action):
         self.request = urllib2.Request(self.url + str(action))
         self.request.add_header('Content-Type', 'application/json')
 

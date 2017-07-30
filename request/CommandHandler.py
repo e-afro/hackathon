@@ -7,25 +7,25 @@ class RequesterHandler:
 
     def __init__(self):
         self.command = Command.Command()
+        self.response = None
 
     def join(self, name):
         index = 0
         self.command.load_parameters("join", name)
 
-        response = self.command.execute()
-        if response is None:
+        self.response = self.command.execute()
+        if self.response is None:
             return self.join(name + str(index + 1))
 
-        self.load_id(response)
+        self.load_id()
 
         return name
 
-    def load_id(self, response):
-        action, value = get_info(response, "userID")
+    def load_id(self):
+        action, value = self.get_info("userID")
         self.command.load_parameters(action, value)
 
+    def get_info(self, key):
+        convert_response = json.load(self.response)
 
-def get_info(response, key):
-    convert_response = json.load(response)
-
-    return key, convert_response[key]
+        return key, convert_response[key]

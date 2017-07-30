@@ -9,7 +9,7 @@ class Command:
         self.requester = Requester.Requester()
 
     def load_parameters(self, action, value):
-        self.requester.create_request(action)
+        self.requester.build_request(action)
         self.json_handler.load_data(action, value)
 
     def execute(self):
