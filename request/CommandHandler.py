@@ -39,3 +39,6 @@ class RequesterHandler:
 
     def get_status(self):
         self.execute("getStatus")
+
+    def get_card_values(self):
+        self.execute("getCardValues")
