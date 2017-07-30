@@ -12,14 +12,15 @@ class JsonHandler:
     def __init__(self):
         self.json_send = JsonSend.JsonSend()
 
-    def load_data(self, action, value):
+    def load_data(self, action, value=None):
         form = format_data[action]
 
-        if form[1] == "action":
-            self.json_send.action_data = {form[0]: value}
-        elif form[1] == "authorization":
-            self.json_send.auth_data = {form[0]: value}
-        else:
+        try:
+            if form[1] == "action":
+                self.json_send.action_data = {form[0]: value}
+            elif form[1] == "authorization":
+                self.json_send.auth_data = {form[0]: value}
+        except KeyError:
             self.json_send.action_data.clear()
 
     def get_data(self):
