@@ -12,8 +12,15 @@ class Response:
     def _set_response(self, response):
         if response is not None:
             self._response = json.load(response)
+        else:
+            self.response = None
 
     response = property(_get_response, _set_response)
 
-    def __getitem__(self, item):
-        return self.response[item]
+    def __getitem__(self, key):
+        try:
+            value = self.response[key]
+        except KeyError:
+            return None
+
+        return value
