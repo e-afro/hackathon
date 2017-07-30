@@ -15,7 +15,7 @@ class Interface:
         self.createRowsLabels()
         self.createCardsLabel()
 
-        self.root.mainloop()
+        # self.root.mainloop()
 
     def createMainWindow(self):
         self.root = tk.Tk()
@@ -32,6 +32,7 @@ class Interface:
     def updateLabel(self, label, config):
         for option, value in config.iteritems():
             if option == 'text':
+                # print value
                 label.configure(text=value)
 
             if option == 'foreground':
@@ -47,9 +48,9 @@ class Interface:
                 label.configure(pady=value)
 
     def createTurnsLabel(self):
-        config = {'text': "it's no one's turn"}
+        config = {'text': "Waiting for : "}
 
-        self.turnslabel = self.createLabel(0, 0, config)
+        self.turnsLabel = self.createLabel(0, 0, config)
 
     def createRowsLabels(self):
 
@@ -66,11 +67,21 @@ class Interface:
 
         self.cardslabel = self.createLabel(0, 5, config)
 
+    def format(self, config):
+        f_config = {'text': config}
+        # print f_config
+        return f_config
+
     def updateInterface(self, rowsconfig, cardsconfig, turnconfig):
         for i in range(0, 4):
-            self.updateLabel(self.rowsLabels[i], rowsconfig[i])
+            f_rowsconfig = self.format("row" + str(i) + " = " + str(rowsconfig[i]))
+            # self.rowsLabels.append(self.createLabel(0, i, f_rowsconfig))
+            # f_rowsconfig = {'text': "row" + str(i) + " = " + "1  0  0  0  0  0"}
+            self.updateLabel(self.rowsLabels[i], f_rowsconfig)
 
-        self.updateLabel(self.cardsLabel[i], cardsconfig)
-        self.updateLabel(self.turnsLabel[i], turnconfig)
+        """f_cardsconfig = self.format("Cards = " + str(cardsconfig))
+        f_turnconfig = self.format("Waiting for : " + str(turnconfig))
+        self.updateLabel(self.cardsLabel, f_cardsconfig)
+        self.updateLabel(self.turnsLabel, f_turnconfig)"""
 
 
