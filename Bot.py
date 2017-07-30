@@ -1,5 +1,5 @@
 from strategies import StrategyD0
-from elements import State
+from game import State
 
 
 class Bot:

@@ -1,5 +1,5 @@
 from request import CommandHandler
-from elements import Status
+from game import Status
 
 
 class StrategyD0:
