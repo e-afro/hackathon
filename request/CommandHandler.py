@@ -25,8 +25,14 @@ class RequesterHandler:
 
     def load_id(self):
         key = "userID"
-        value = self.response.response[key]
+        value = self.response[key]
         self.command.load_parameters(key, value)
 
     def play_card(self, card):
         self.execute("playCard", card)
+
+    def select_row(self, row):
+        self.execute("selectRow", row)
+
+    def get_cards(self):
+        self.execute("getCards")
