@@ -1,6 +1,6 @@
 class Row:
 
-    def __init__(self, cards):
+    def __init__(self, cards=list()):
         self.cards = cards
 
     def get_value(self):
