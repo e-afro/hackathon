@@ -10,6 +10,6 @@ class Board:
         for r in rows:
             row = Row.Row()
             for c in r:
-                card = deck.remove_card_by_value(c)
+                card = deck.get_card_by_value(c)
                 row.cards.append(card)
             self.rows.append(row)

@@ -10,3 +10,11 @@ class Row:
             row_value += card.value
 
         return row_value
+
+    def get_last_card(self):
+        last_card = None
+        for card in self.cards:
+            if card is not None:
+                last_card = card
+
+        return last_card
