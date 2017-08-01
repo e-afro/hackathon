@@ -3,6 +3,14 @@ class Row:
     def __init__(self, cards=list()):
         self.cards = cards
 
+    def __getitem__(self, key):
+        try:
+            value = self.cards[key]
+        except KeyError:
+            return None
+
+        return value
+
     def get_value(self):
         row_value = 0
 
