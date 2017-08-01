@@ -13,3 +13,12 @@ class State:
             self.waiting_for = len(waiting_list) > 0
         if ready_list is not None:
             self.is_ready = name in ready_list
+
+    def can_get_card_values(self):
+        return self.state == 1 and not self.is_ready
+
+    def can_play_card(self):
+        return self.state == 2 and not self.is_ready
+
+    def can_select_row(self):
+        return self.state == 3 and not self.is_ready
