@@ -21,9 +21,19 @@ class Bot:
         self.state.load(self.name, response)
         self.strategy.status.load(response)
 
+        self.load_cards()
+
+    def load_cards(self):
+        self.command_handler.get_cards()
+        self.strategy.status.load(self.command_handler.response)
+
+    def load_card_values(self):
+        self.command_handler.get_card_values()
+        self.strategy.status.load(self.command_handler.response)
+
     def play(self):
         if self.state.can_get_card_values():
-            self.command_handler.get_card_values()
+            self.load_card_values()
         self.load(self.command_handler.response)
 
         if self.state.can_play_card():
