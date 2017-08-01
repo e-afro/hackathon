@@ -1,7 +1,10 @@
 class Hand:
 
-    def __init__(self, cards):
+    def __init__(self, cards=list()):
         self.cards = cards
 
-    def play_card(self, card):
-        self.cards.remove(card)
+    def build_hand(self, deck, cards):
+        self.cards = list()
+        for c in cards:
+            card = deck.get_card_by_value(c)
+            self.cards.append(card)
