@@ -16,5 +16,21 @@ class Bot:
     def build_strategy(self):
         return self.DEFAULT_STRATEGY(self)
 
+    def load(self, response):
+        self.command_handler.get_status()
+        self.state.load(self.name, response)
+        self.strategy.status.load(response)
+
     def play(self):
-        None
+        if self.state.can_get_card_values():
+            self.command_handler.get_card_values()
+        self.load(self.command_handler.response)
+
+        if self.state.can_play_card():
+            card = self.strategy.play_card()
+            self.command_handler.play_card(card)
+
+        if self.state.can_select_row():
+            row = self.strategy.select_row()
+            self.command_handler.select_row(row)
+
