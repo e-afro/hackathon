@@ -7,3 +7,5 @@ class Card:
     def __eq__(self, card):
         return self.value == card.value
 
+    def __lt__(self, card):
+        return self.value < card.value
