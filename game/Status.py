@@ -14,8 +14,5 @@ class Status:
 
         if card_values is not None:
             self.deck.build_all_cards(card_values)
-        if rows is not None:
+        if rows is not None or not None in rows:
             self.board.build_rows(self.deck, rows)
-
-    def update(self, response):
-        None

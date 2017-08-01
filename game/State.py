@@ -5,10 +5,7 @@ class State:
         self.waiting_for = True
         self.is_ready = False
 
-    def load(self, response):
-        None
-
-    def update(self, name, response):
+    def load(self, name, response):
         waiting_list = response["playersWaitingFor"]
         ready_list = response["playersReady"]
 
