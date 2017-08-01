@@ -9,7 +9,13 @@ class Status:
         self.board = Board.Board()
 
     def load(self, response):
-        None
+        card_values = response["cardvalues"]
+        rows = response["rows"]
+
+        if card_values is not None:
+            self.deck.build_all_cards(card_values)
+        if rows is not None:
+            self.board.build_rows(self.deck, rows)
 
     def update(self, response):
         None
